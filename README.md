@@ -149,10 +149,13 @@ pnpm lint
 ```text
 src/
 ├── components/
+│   ├── home/            # HomeHero, HomeSearchSection, FeaturesGrid, FeatureCard
 │   ├── layout/          # Header, Footer
 │   ├── search/          # SearchBar
-│   ├── user/            # UserCard, UserCardSkeleton
-│   ├── repository/      # RepositoryCard, RepositoryList, skeletons
+│   ├── user/            # UserCard e subcomponentes (UserHeader, UserMeta, UserStats, etc.)
+│   ├── repository/      # RepositoryCard, RepositoryList e subpastas
+│   │   ├── detail/      # Seções da página de detalhe do repositório
+│   │   └── list/        # Header/estados da listagem de repositórios
 │   └── ui/              # Componentes shadcn (Button, Card, Badge, etc.)
 ├── pages/
 │   ├── HomePage.tsx
