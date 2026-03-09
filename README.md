@@ -19,6 +19,9 @@ Aplicação web construída com **React + TypeScript** que consome a **[GitHub R
   - Estrelas (maior/menor)
   - Nome (A→Z / Z→A)
   - Data de atualização (mais recente/mais antiga)
+- **Paginação incremental** na listagem de repositórios
+  - Carrega uma primeira página (30 itens)
+  - Botão "Carregar mais" para buscar as próximas páginas
 - **Página de detalhes** de cada repositório
   - Linguagem principal (com cor por linguagem)
   - Estrelas, forks, watchers, issues
@@ -135,7 +138,8 @@ pnpm lint
   - Arquivo: `src/services/github.ts`
   - Usa uma instância do Axios (`baseURL: https://api.github.com`).
   - Tratamento de erros com mensagens amigáveis (ex: 404, 403 rate limit, problemas de rede).
-  - Repositórios são paginados (`per_page=100`) com um _safety cap_ para evitar loop infinito.
+  - Repositórios são buscados por página (ex: 30 itens por vez) para melhorar performance e evitar carregar tudo de uma vez.
+  - Também existe um fetch "completo" com paginação e _safety cap_ para evitar loop infinito.
 
 - **Detalhe do repositório**
   - Página: `src/pages/RepositoryDetailPage.tsx`
