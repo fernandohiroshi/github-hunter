@@ -28,7 +28,7 @@ export function UserCard({ user }: UserCardProps) {
 
   return (
     <div className="animate-fade-in">
-      <div className="flex flex-col sm:flex-row gap-6 items-start">
+      <div className="flex flex-col sm:flex-row gap-6 items-center md:items-start">
         {/* Avatar */}
         <div className="relative shrink-0 mx-auto sm:mx-0">
           <div
