@@ -61,9 +61,9 @@ export const useSearchStore = create<SearchStore>()(
 
         const reposTask = (async () => {
           const first = await fetchUserRepositoriesPage(trimmed, 1, perPage);
-          let repos = first.data;
-          let nextPage = 2;
-          let hasMore = first.hasMore;
+          const repos = first.data;
+          const nextPage = 2;
+          const hasMore = first.hasMore;
 
           return { repos, hasMore, nextPage };
         })();
