@@ -62,7 +62,7 @@ export function SearchBar({ autoFocus = false, size = 'default', className }: Se
           disabled={isLoadingUser}
           className={cn(
             'transition-all duration-200 border-border/70 focus:border-primary/50',
-            isLarge ? 'h-12 pl-11 text-base' : 'pl-9',
+            isLarge ? 'h-12 pl-11 text-xs md:text-base' : 'pl-9',
           )}
           maxLength={39}
           pattern="[a-zA-Z0-9]([a-zA-Z0-9-]{0,37}[a-zA-Z0-9])?"
