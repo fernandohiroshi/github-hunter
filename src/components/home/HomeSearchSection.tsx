@@ -30,7 +30,7 @@ export function HomeSearchSection({
   }
 
   return (
-    <div className="animate-fade-in stagger-2 mb-16">
+    <div className="animate-fade-in stagger-2">
       <SearchBar autoFocus size="lg" />
       <p className="text-xs text-muted-foreground text-center mt-3">
         Ex:{' '}

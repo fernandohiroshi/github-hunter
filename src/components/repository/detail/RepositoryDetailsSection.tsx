@@ -9,6 +9,8 @@ interface RepositoryDetailsSectionProps {
 }
 
 export function RepositoryDetailsSection({ repo }: RepositoryDetailsSectionProps) {
+  const hasTopics = (repo.topics?.length ?? 0) > 0
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 animate-fade-in stagger-3">
       <Card className="border-border/60">
@@ -68,14 +70,14 @@ export function RepositoryDetailsSection({ repo }: RepositoryDetailsSectionProps
         </CardContent>
       </Card>
 
-      {repo.topics && repo.topics.length > 0 && (
-        <Card className="border-border/60">
-          <CardContent className="p-5">
-            <h2 className="font-bold text-sm uppercase tracking-wider text-muted-foreground mb-4">
-              Tópicos
-            </h2>
+      <Card className="border-border/60">
+        <CardContent className="p-5">
+          <h2 className="font-bold text-sm uppercase tracking-wider text-muted-foreground mb-4">
+            Tópicos
+          </h2>
+          {hasTopics ? (
             <div className="flex flex-wrap gap-2">
-              {repo.topics.map((topic) => (
+              {repo.topics!.map((topic) => (
                 <span
                   key={topic}
                   className="text-sm px-3 py-1 rounded-full bg-primary/10 text-primary/90 font-medium border border-primary/20"
@@ -84,9 +86,11 @@ export function RepositoryDetailsSection({ repo }: RepositoryDetailsSectionProps
                 </span>
               ))}
             </div>
-          </CardContent>
-        </Card>
-      )}
+          ) : (
+            <p className="text-sm text-muted-foreground">Sem tópicos</p>
+          )}
+        </CardContent>
+      </Card>
     </div>
   )
 }
