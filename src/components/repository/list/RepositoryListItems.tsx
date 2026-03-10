@@ -1,8 +1,8 @@
-import type { GitHubRepository } from "@/types/github";
-import { RepositoryCard } from "@/components/repository/RepositoryCard";
+import type { GitHubRepository } from '@/types/github'
+import { RepositoryCard } from '@/components/repository/RepositoryCard'
 
 interface RepositoryListItemsProps {
-  repos: GitHubRepository[];
+  repos: GitHubRepository[]
 }
 
 export function RepositoryListItems({ repos }: RepositoryListItemsProps) {
@@ -14,5 +14,5 @@ export function RepositoryListItems({ repos }: RepositoryListItemsProps) {
         </li>
       ))}
     </ul>
-  );
+  )
 }

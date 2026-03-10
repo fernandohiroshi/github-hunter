@@ -1,18 +1,18 @@
-import { SlidersHorizontal } from "lucide-react";
+import { SlidersHorizontal } from 'lucide-react'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { SORT_OPTIONS } from "@/utils/sort";
-import type { SortOption } from "@/types/github";
+} from '@/components/ui/select'
+import { SORT_OPTIONS } from '@/utils/sort'
+import type { SortOption } from '@/types/github'
 
 interface RepositoryListHeaderProps {
-  total: number;
-  sortOption: SortOption;
-  onSortChange: (value: SortOption) => void;
+  total: number
+  sortOption: SortOption
+  onSortChange: (value: SortOption) => void
 }
 
 export function RepositoryListHeader({
@@ -30,10 +30,7 @@ export function RepositoryListHeader({
       </h2>
 
       <div className="flex items-center gap-2">
-        <SlidersHorizontal
-          className="w-4 h-4 text-muted-foreground shrink-0"
-          aria-hidden="true"
-        />
+        <SlidersHorizontal className="w-4 h-4 text-muted-foreground shrink-0" aria-hidden="true" />
         <Select value={sortOption} onValueChange={(value) => onSortChange(value as SortOption)}>
           <SelectTrigger className="w-full sm:w-56" aria-label="Ordenar repositórios por">
             <SelectValue />
@@ -48,5 +45,5 @@ export function RepositoryListHeader({
         </Select>
       </div>
     </div>
-  );
+  )
 }

@@ -1,17 +1,11 @@
-import {
-  Code,
-  Clock,
-  Scale,
-  Tag,
-  GitBranch,
-} from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import type { GitHubRepository } from "@/types/github";
-import { formatDate, formatRelativeDate } from "@/utils/format";
-import { getLanguageColor } from "@/utils/languageColors";
+import { Code, Clock, Scale, Tag, GitBranch } from 'lucide-react'
+import { Card, CardContent } from '@/components/ui/card'
+import type { GitHubRepository } from '@/types/github'
+import { formatDate, formatRelativeDate } from '@/utils/format'
+import { getLanguageColor } from '@/utils/languageColors'
 
 interface RepositoryDetailsSectionProps {
-  repo: GitHubRepository;
+  repo: GitHubRepository
 }
 
 export function RepositoryDetailsSection({ repo }: RepositoryDetailsSectionProps) {
@@ -94,7 +88,7 @@ export function RepositoryDetailsSection({ repo }: RepositoryDetailsSectionProps
         </Card>
       )}
     </div>
-  );
+  )
 }
 
 function DetailRow({
@@ -102,16 +96,13 @@ function DetailRow({
   label,
   value,
 }: {
-  icon: React.ReactNode;
-  label: string;
-  value: React.ReactNode;
+  icon: React.ReactNode
+  label: string
+  value: React.ReactNode
 }) {
   return (
     <div className="flex items-start gap-2">
-      <span
-        className="text-muted-foreground mt-0.5 shrink-0"
-        aria-hidden="true"
-      >
+      <span className="text-muted-foreground mt-0.5 shrink-0" aria-hidden="true">
         {icon}
       </span>
       <div className="flex-1 min-w-0">
@@ -119,5 +110,5 @@ function DetailRow({
         <dd className="text-sm font-medium">{value}</dd>
       </div>
     </div>
-  );
+  )
 }

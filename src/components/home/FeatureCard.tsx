@@ -1,7 +1,7 @@
 interface FeatureCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
+  icon: React.ReactNode
+  title: string
+  description: string
 }
 
 export function FeatureCard({ icon, title, description }: FeatureCardProps) {
@@ -13,5 +13,5 @@ export function FeatureCard({ icon, title, description }: FeatureCardProps) {
       <h3 className="font-semibold text-sm mb-1">{title}</h3>
       <p className="text-xs text-muted-foreground leading-relaxed">{description}</p>
     </div>
-  );
+  )
 }

@@ -1,20 +1,14 @@
-import { Building2, Link2, Mail, MapPin, Twitter } from "lucide-react";
+import { Building2, Link2, Mail, MapPin, Twitter } from 'lucide-react'
 
 interface UserMetaProps {
-  company: string | null;
-  location: string | null;
-  email: string | null;
-  blog: string | null;
-  twitterUsername: string | null;
+  company: string | null
+  location: string | null
+  email: string | null
+  blog: string | null
+  twitterUsername: string | null
 }
 
-export function UserMeta({
-  company,
-  location,
-  email,
-  blog,
-  twitterUsername,
-}: UserMetaProps) {
+export function UserMeta({ company, location, email, blog, twitterUsername }: UserMetaProps) {
   return (
     <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1.5 text-sm text-muted-foreground mb-4">
       {company && (
@@ -41,7 +35,7 @@ export function UserMeta({
       )}
       {blog && (
         <a
-          href={blog.startsWith("http") ? blog : `https://${blog}`}
+          href={blog.startsWith('http') ? blog : `https://${blog}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 hover:text-primary transition-colors"
@@ -64,5 +58,5 @@ export function UserMeta({
         </a>
       )}
     </div>
-  );
+  )
 }

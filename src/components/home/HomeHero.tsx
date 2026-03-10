@@ -1,4 +1,4 @@
-import { Github } from "lucide-react";
+import { Github } from 'lucide-react'
 
 export function HomeHero() {
   return (
@@ -17,5 +17,5 @@ export function HomeHero() {
         Explore perfis e repositórios públicos do GitHub de forma rápida e intuitiva.
       </p>
     </div>
-  );
+  )
 }

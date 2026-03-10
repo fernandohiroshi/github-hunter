@@ -1,24 +1,22 @@
-import { useState } from "react";
-import { SearchBar } from "@/components/search/SearchBar";
+import { useState } from 'react'
+import { SearchBar } from '@/components/search/SearchBar'
 
 interface HomeSearchSectionProps {
-  exampleUsernames?: string[];
+  exampleUsernames?: string[]
 }
 
 export function HomeSearchSection({
-  exampleUsernames = ["fernandohiroshi", "vercel", "shadcn"],
+  exampleUsernames = ['fernandohiroshi', 'vercel', 'shadcn'],
 }: HomeSearchSectionProps) {
-  const [tooltipText, setTooltipText] = useState("Copiar");
-  const [activeTooltipUsername, setActiveTooltipUsername] = useState<
-    string | null
-  >(null);
+  const [tooltipText, setTooltipText] = useState('Copiar')
+  const [activeTooltipUsername, setActiveTooltipUsername] = useState<string | null>(null)
 
   async function handleCopyExample(username: string) {
     try {
-      await navigator.clipboard.writeText(username);
-      setActiveTooltipUsername(username);
-      setTooltipText("Copiado!");
-      window.setTimeout(() => setTooltipText("Copiar"), 1200);
+      await navigator.clipboard.writeText(username)
+      setActiveTooltipUsername(username)
+      setTooltipText('Copiado!')
+      window.setTimeout(() => setTooltipText('Copiar'), 1200)
     } catch {
       // ignore
     }
@@ -26,19 +24,19 @@ export function HomeSearchSection({
 
   function handleMouseLeave(username: string) {
     if (activeTooltipUsername === username) {
-      setActiveTooltipUsername(null);
+      setActiveTooltipUsername(null)
     }
-    setTooltipText("Copiar");
+    setTooltipText('Copiar')
   }
 
   return (
     <div className="animate-fade-in stagger-2 mb-16">
       <SearchBar autoFocus size="lg" />
       <p className="text-xs text-muted-foreground text-center mt-3">
-        Ex:{" "}
+        Ex:{' '}
         {exampleUsernames.map((username, index) => (
           <span key={username}>
-            {index > 0 ? ", " : null}
+            {index > 0 ? ', ' : null}
             <button
               type="button"
               onClick={() => handleCopyExample(username)}
@@ -48,12 +46,12 @@ export function HomeSearchSection({
             >
               {username}
               <span className="absolute left-1/2 -translate-x-1/2 -top-7 rounded-md border border-border/60 bg-popover px-2 py-1 text-[10px] text-foreground shadow-sm opacity-0 pointer-events-none transition-opacity duration-150 group-hover:opacity-100">
-                {activeTooltipUsername === username ? tooltipText : "Copiar"}
+                {activeTooltipUsername === username ? tooltipText : 'Copiar'}
               </span>
             </button>
           </span>
         ))}
       </p>
     </div>
-  );
+  )
 }

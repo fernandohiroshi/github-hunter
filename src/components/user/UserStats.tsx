@@ -1,12 +1,12 @@
-import { BookOpen, Users } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
-import { formatNumber } from "@/utils/format";
-import { StatItem } from "@/components/user/StatItem";
+import { BookOpen, Users } from 'lucide-react'
+import { Separator } from '@/components/ui/separator'
+import { formatNumber } from '@/utils/format'
+import { StatItem } from '@/components/user/StatItem'
 
 interface UserStatsProps {
-  followers: number;
-  following: number;
-  publicRepos: number;
+  followers: number
+  following: number
+  publicRepos: number
 }
 
 export function UserStats({ followers, following, publicRepos }: UserStatsProps) {
@@ -30,5 +30,5 @@ export function UserStats({ followers, following, publicRepos }: UserStatsProps)
         label="repositórios"
       />
     </div>
-  );
+  )
 }

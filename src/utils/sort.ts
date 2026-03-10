@@ -2,7 +2,7 @@ import type { GitHubRepository, SortOption } from '@/types/github'
 
 export function sortRepositories(
   repos: GitHubRepository[],
-  option: SortOption
+  option: SortOption,
 ): GitHubRepository[] {
   const sorted = [...repos]
 
@@ -21,12 +21,12 @@ export function sortRepositories(
 
     case 'updated-desc':
       return sorted.sort(
-        (a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
+        (a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime(),
       )
 
     case 'updated-asc':
       return sorted.sort(
-        (a, b) => new Date(a.updated_at).getTime() - new Date(b.updated_at).getTime()
+        (a, b) => new Date(a.updated_at).getTime() - new Date(b.updated_at).getTime(),
       )
 
     default:

@@ -1,15 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Github, Search, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useSearchStore } from "@/store/searchStore";
+import { Link, useNavigate } from 'react-router-dom'
+import { Github, Search, X } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { useSearchStore } from '@/store/searchStore'
 
 export function Header() {
-  const { query, clearSearch } = useSearchStore();
-  const navigate = useNavigate();
+  const { query, clearSearch } = useSearchStore()
+  const navigate = useNavigate()
 
   function handleLogoClick() {
-    clearSearch();
-    navigate("/");
+    clearSearch()
+    navigate('/')
   }
 
   return (
@@ -31,9 +31,7 @@ export function Header() {
 
           {query && (
             <div className="flex items-center gap-2 animate-fade-in">
-              <span className="text-sm text-muted-foreground hidden sm:block">
-                Buscando:
-              </span>
+              <span className="text-sm text-muted-foreground hidden sm:block">Buscando:</span>
               <Link
                 to={`/user/${query}`}
                 className="flex items-center gap-1.5 text-sm font-mono text-primary hover:text-primary/80 transition-colors"
@@ -55,5 +53,5 @@ export function Header() {
         </div>
       </div>
     </header>
-  );
+  )
 }
