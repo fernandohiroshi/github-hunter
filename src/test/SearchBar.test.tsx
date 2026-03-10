@@ -22,6 +22,19 @@ vi.mock('@/store/searchStore', () => ({
   }),
 }))
 
+vi.mock('@/hooks/useSearchHistory', () => ({
+  useSearchHistory: () => ({
+    items: [],
+    add: vi.fn(),
+    remove: vi.fn(),
+    clear: vi.fn(),
+  }),
+}))
+
+vi.mock('@/hooks/useNavigateToUser', () => ({
+  useNavigateToUser: () => (username: string) => mockNavigate(`/user/${username.trim()}`),
+}))
+
 function renderSearchBar() {
   return render(
     <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
