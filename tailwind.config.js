@@ -86,6 +86,10 @@ export default {
           '0%': { backgroundPosition: '-1000px 0' },
           '100%': { backgroundPosition: '1000px 0' },
         },
+        shine: {
+          '0%': { backgroundPosition: '0% 0%' },
+          '100%': { backgroundPosition: '300% 300%' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -94,6 +98,7 @@ export default {
         'slide-in': 'slide-in 0.3s ease-out',
         'scale-in': 'scale-in 0.2s ease-out',
         shimmer: 'shimmer 2s infinite linear',
+        shine: 'shine var(--duration) infinite linear',
       },
     },
   },
