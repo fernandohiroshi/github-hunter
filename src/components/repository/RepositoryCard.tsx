@@ -15,6 +15,8 @@ interface RepositoryCardProps {
 export function RepositoryCard({ repo, index = 0 }: RepositoryCardProps) {
   const navigate = useNavigate()
 
+  const visibleTopics = (repo.topics ?? []).filter((topic) => topic !== repo.name).slice(0, 4)
+
   function handleClick() {
     navigate(`/user/${repo.owner.login}/repo/${repo.name}`)
   }
@@ -63,26 +65,25 @@ export function RepositoryCard({ repo, index = 0 }: RepositoryCardProps) {
               </p>
             )}
 
-            {repo.topics && repo.topics.length > 0 && (
-              <div className="flex flex-wrap gap-1.5 mb-3">
-                {repo.topics
-                  .filter((topic) => topic !== repo.name)
-                  .slice(0, 4)
-                  .map((topic) => (
-                    <span
-                      key={topic}
-                      className="text-[11px] px-2 py-0.5 rounded-full bg-primary/10 text-primary/80 font-medium border border-primary/20"
-                    >
-                      {topic}
-                    </span>
-                  ))}
-                {repo.topics.length > 4 && (
-                  <span className="text-[11px] text-muted-foreground px-1">
-                    +{repo.topics.length - 4}
+            <div className="flex flex-wrap gap-1.5 mb-3">
+              {visibleTopics.length > 0 ? (
+                visibleTopics.map((topic) => (
+                  <span
+                    key={topic}
+                    className="text-[11px] px-2 py-0.5 rounded-full bg-primary/10 text-primary/80 font-medium border border-primary/20"
+                  >
+                    {topic}
                   </span>
-                )}
-              </div>
-            )}
+                ))
+              ) : (
+                <span className="text-xs text-muted-foreground">Sem tópicos</span>
+              )}
+              {(repo.topics?.length ?? 0) > 4 && (
+                <span className="text-[11px] text-muted-foreground px-1">
+                  +{repo.topics!.length - 4}
+                </span>
+              )}
+            </div>
 
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-muted-foreground">
               {repo.language && (
