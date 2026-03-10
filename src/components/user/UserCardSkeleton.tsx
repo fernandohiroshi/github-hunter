@@ -3,10 +3,8 @@ import { Skeleton } from '@/components/ui/skeleton'
 export function UserCardSkeleton() {
   return (
     <div className="flex flex-col sm:flex-row gap-6 items-start animate-pulse">
-      {/* Avatar skeleton */}
       <Skeleton className="w-24 h-24 sm:w-28 sm:h-28 rounded-full shrink-0 mx-auto sm:mx-0" />
 
-      {/* Info skeleton */}
       <div className="flex-1 w-full space-y-3">
         <div className="flex flex-col sm:flex-row sm:items-center gap-2">
           <Skeleton className="h-7 w-40 mx-auto sm:mx-0" />

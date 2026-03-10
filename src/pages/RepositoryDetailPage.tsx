@@ -79,21 +79,16 @@ export function RepositoryDetailPage() {
 
   return (
     <main className="container mx-auto px-4 max-w-4xl py-8 space-y-6">
-      {/* Breadcrumb */}
       <RepositoryBreadcrumb username={username ?? ''} />
 
-      {/* Header */}
       <RepositoryHeader username={username ?? ''} repo={repo} />
 
       <Separator />
 
-      {/* Stats grid */}
       <RepositoryStatsGrid repo={repo} />
 
-      {/* Details */}
       <RepositoryDetailsSection repo={repo} />
 
-      {/* Links */}
       <RepositoryLinks repo={repo} />
     </main>
   )
