@@ -1,4 +1,4 @@
-import { RepositoryCardSkeleton } from "@/components/repository/RepositoryCardSkeleton";
+import { RepositoryCardSkeleton } from '@/components/repository/RepositoryCardSkeleton'
 
 export function RepositoryListLoading() {
   return (
@@ -13,5 +13,5 @@ export function RepositoryListLoading() {
         ))}
       </div>
     </section>
-  );
+  )
 }

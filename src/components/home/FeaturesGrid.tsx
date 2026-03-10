@@ -1,23 +1,23 @@
-import { Star, GitFork, Users } from "lucide-react";
-import { FeatureCard } from "@/components/home/FeatureCard";
+import { Star, GitFork, Users } from 'lucide-react'
+import { FeatureCard } from '@/components/home/FeatureCard'
 
 const FEATURES = [
   {
     icon: <Users className="w-5 h-5" />,
-    title: "Perfis de Usuários",
-    description: "Seguidores, seguidos, bio, e-mail e muito mais.",
+    title: 'Perfis de Usuários',
+    description: 'Seguidores, seguidos, bio, e-mail e muito mais.',
   },
   {
     icon: <Star className="w-5 h-5" />,
-    title: "Repositórios Ordenados",
-    description: "Veja todos os repositórios, ordenados como preferir.",
+    title: 'Repositórios Ordenados',
+    description: 'Veja todos os repositórios, ordenados como preferir.',
   },
   {
     icon: <GitFork className="w-5 h-5" />,
-    title: "Detalhes Completos",
-    description: "Linguagem, estrelas, forks, descrição e link direto.",
+    title: 'Detalhes Completos',
+    description: 'Linguagem, estrelas, forks, descrição e link direto.',
   },
-];
+]
 
 export function FeaturesGrid() {
   return (
@@ -31,5 +31,5 @@ export function FeaturesGrid() {
         />
       ))}
     </div>
-  );
+  )
 }

@@ -1,6 +1,6 @@
-import { FeaturesGrid } from "@/components/home/FeaturesGrid";
-import { HomeHero } from "@/components/home/HomeHero";
-import { HomeSearchSection } from "@/components/home/HomeSearchSection";
+import { FeaturesGrid } from '@/components/home/FeaturesGrid'
+import { HomeHero } from '@/components/home/HomeHero'
+import { HomeSearchSection } from '@/components/home/HomeSearchSection'
 
 export function HomePage() {
   return (
@@ -14,5 +14,5 @@ export function HomePage() {
       {/* Features */}
       <FeaturesGrid />
     </main>
-  );
+  )
 }

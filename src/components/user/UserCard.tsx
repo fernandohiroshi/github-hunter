@@ -1,32 +1,28 @@
-import type { GitHubUser } from "@/types/github";
-import { formatDate } from "@/utils/format";
-import { UserAvatar } from "@/components/user/UserAvatar";
-import { UserHeader } from "@/components/user/UserHeader";
-import { UserBio } from "@/components/user/UserBio";
-import { UserMeta } from "@/components/user/UserMeta";
-import { UserStats } from "@/components/user/UserStats";
-import { GitHubProfileButton } from "@/components/user/GitHubProfileButton";
+import type { GitHubUser } from '@/types/github'
+import { formatDate } from '@/utils/format'
+import { UserAvatar } from '@/components/user/UserAvatar'
+import { UserHeader } from '@/components/user/UserHeader'
+import { UserBio } from '@/components/user/UserBio'
+import { UserMeta } from '@/components/user/UserMeta'
+import { UserStats } from '@/components/user/UserStats'
+import { GitHubProfileButton } from '@/components/user/GitHubProfileButton'
 
 interface UserCardProps {
-  user: GitHubUser;
+  user: GitHubUser
 }
 
 export function UserCard({ user }: UserCardProps) {
   const initials = (user.name ?? user.login)
-    .split(" ")
+    .split(' ')
     .slice(0, 2)
     .map((n) => n[0]?.toUpperCase())
-    .join("");
+    .join('')
 
   return (
     <div className="animate-fade-in">
       <div className="flex flex-col sm:flex-row gap-6 items-center md:items-start">
         {/* Avatar */}
-        <UserAvatar
-          avatarUrl={user.avatar_url}
-          login={user.login}
-          initials={initials}
-        />
+        <UserAvatar avatarUrl={user.avatar_url} login={user.login} initials={initials} />
 
         {/* Info */}
         <div className="flex-1 min-w-0 text-center sm:text-left">
@@ -59,5 +55,5 @@ export function UserCard({ user }: UserCardProps) {
         Membro desde {formatDate(user.created_at)}
       </p>
     </div>
-  );
+  )
 }

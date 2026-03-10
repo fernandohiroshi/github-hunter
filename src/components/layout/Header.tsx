@@ -1,15 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Github, Search, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useSearchStore } from "@/store/searchStore";
+import { Link, useNavigate } from 'react-router-dom'
+import { Github, Search, X } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { useSearchStore } from '@/store/searchStore'
+import { ThemeToggleButton } from '@/components/theme/ThemeToggleButton'
 
 export function Header() {
-  const { query, clearSearch } = useSearchStore();
-  const navigate = useNavigate();
+  const { query, clearSearch } = useSearchStore()
+  const navigate = useNavigate()
 
   function handleLogoClick() {
-    clearSearch();
-    navigate("/");
+    clearSearch()
+    navigate('/')
   }
 
   return (
@@ -29,31 +30,32 @@ export function Header() {
             </span>
           </button>
 
-          {query && (
-            <div className="flex items-center gap-2 animate-fade-in">
-              <span className="text-sm text-muted-foreground hidden sm:block">
-                Buscando:
-              </span>
-              <Link
-                to={`/user/${query}`}
-                className="flex items-center gap-1.5 text-sm font-mono text-primary hover:text-primary/80 transition-colors"
-              >
-                <Search className="w-3 h-3" />
-                {query}
-              </Link>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-7 w-7"
-                onClick={handleLogoClick}
-                aria-label="Limpar busca"
-              >
-                <X className="w-3.5 h-3.5" />
-              </Button>
-            </div>
-          )}
+          <div className="flex items-center gap-2">
+            {query && (
+              <div className="flex items-center gap-2 animate-fade-in">
+                <span className="text-sm text-muted-foreground hidden sm:block">Buscando:</span>
+                <Link
+                  to={`/user/${query}`}
+                  className="flex items-center gap-1.5 text-sm font-mono text-primary hover:text-primary/80 transition-colors"
+                >
+                  <Search className="w-3 h-3" />
+                  {query}
+                </Link>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="h-7 w-7"
+                  onClick={handleLogoClick}
+                  aria-label="Limpar busca"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </Button>
+              </div>
+            )}
+            <ThemeToggleButton />
+          </div>
         </div>
       </div>
     </header>
-  );
+  )
 }

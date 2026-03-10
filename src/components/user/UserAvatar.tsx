@@ -1,9 +1,9 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 interface UserAvatarProps {
-  avatarUrl: string;
-  login: string;
-  initials: string;
+  avatarUrl: string
+  login: string
+  initials: string
 }
 
 export function UserAvatar({ avatarUrl, login, initials }: UserAvatarProps) {
@@ -14,13 +14,9 @@ export function UserAvatar({ avatarUrl, login, initials }: UserAvatarProps) {
         aria-hidden="true"
       />
       <Avatar className="w-24 h-24 sm:w-28 sm:h-28 ring-2 ring-primary/30 ring-offset-2 ring-offset-background relative">
-        <AvatarImage
-          src={avatarUrl}
-          alt={`Avatar de ${login}`}
-          loading="lazy"
-        />
+        <AvatarImage src={avatarUrl} alt={`Avatar de ${login}`} loading="lazy" />
         <AvatarFallback className="text-xl">{initials}</AvatarFallback>
       </Avatar>
     </div>
-  );
+  )
 }

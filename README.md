@@ -43,6 +43,16 @@ O layout foi pensado para funcionar bem em telas pequenas e grandes.
 
 ---
 
+## 🎨 Tema (Dark / Light)
+
+A aplicação suporta **dark mode** (padrão) e **light mode** com um botão de alternância no header.
+
+- **Persistência:** a preferência do tema é salva em `localStorage`.
+
+![Preview theme toggle](./public/readme-theme-image.webp)
+
+---
+
 ## 🛠️ Stack Tecnológica
 
 | Categoria       | Tecnologia                              |
@@ -104,7 +114,18 @@ pnpm test:coverage
 
 # Lint
 pnpm lint
+
+# Formatador (Prettier)
+pnpm format
+
+# Verificar formatação (CI)
+pnpm format:check
 ```
+
+O projeto utiliza **Prettier** para padronizar a formatação do código (escopo principal: `src/`).
+
+- **Config:** `.prettierrc`
+- **Ignorados:** `.prettierignore`
 
 ---
 

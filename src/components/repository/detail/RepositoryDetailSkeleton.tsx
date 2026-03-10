@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Link } from 'react-router-dom'
+import { ArrowLeft } from 'lucide-react'
+import { Skeleton } from '@/components/ui/skeleton'
 
 export function RepositoryDetailSkeleton({ username }: { username: string }) {
   return (
@@ -30,5 +30,5 @@ export function RepositoryDetailSkeleton({ username }: { username: string }) {
         <Skeleton className="h-48 rounded-xl" />
       </div>
     </main>
-  );
+  )
 }

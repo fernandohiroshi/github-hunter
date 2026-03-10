@@ -1,28 +1,28 @@
-import { useNavigate } from "react-router-dom";
-import { Star, GitFork, Eye, Clock, ArrowRight } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import type { GitHubRepository } from "@/types/github";
-import { formatNumber, formatRelativeDate } from "@/utils/format";
-import { getLanguageColor } from "@/utils/languageColors";
-import { cn } from "@/utils/cn";
+import { useNavigate } from 'react-router-dom'
+import { Star, GitFork, Eye, Clock, ArrowRight } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent } from '@/components/ui/card'
+import type { GitHubRepository } from '@/types/github'
+import { formatNumber, formatRelativeDate } from '@/utils/format'
+import { getLanguageColor } from '@/utils/languageColors'
+import { cn } from '@/utils/cn'
 
 interface RepositoryCardProps {
-  repo: GitHubRepository;
-  index?: number;
+  repo: GitHubRepository
+  index?: number
 }
 
 export function RepositoryCard({ repo, index = 0 }: RepositoryCardProps) {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   function handleClick() {
-    navigate(`/user/${repo.owner.login}/repo/${repo.name}`);
+    navigate(`/user/${repo.owner.login}/repo/${repo.name}`)
   }
 
   function handleKeyDown(e: React.KeyboardEvent) {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      handleClick();
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handleClick()
     }
   }
 
@@ -34,7 +34,7 @@ export function RepositoryCard({ repo, index = 0 }: RepositoryCardProps) {
       onKeyDown={handleKeyDown}
       aria-label={`Ver detalhes do repositório ${repo.name}`}
       className={cn(
-        "cursor-pointer card-hover animate-fade-in border-border/60",
+        'cursor-pointer card-hover animate-fade-in border-border/60',
         `stagger-${Math.min((index % 5) + 1, 5)}`,
       )}
     >
@@ -100,34 +100,24 @@ export function RepositoryCard({ repo, index = 0 }: RepositoryCardProps) {
                 </span>
               )}
 
-              <span
-                className="flex items-center gap-1"
-                title={`${repo.stargazers_count} estrelas`}
-              >
+              <span className="flex items-center gap-1" title={`${repo.stargazers_count} estrelas`}>
                 <Star className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>{formatNumber(repo.stargazers_count)}</span>
               </span>
 
               {repo.forks_count > 0 && (
-                <span
-                  className="flex items-center gap-1"
-                  title={`${repo.forks_count} forks`}
-                >
+                <span className="flex items-center gap-1" title={`${repo.forks_count} forks`}>
                   <GitFork className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>{formatNumber(repo.forks_count)}</span>
                 </span>
               )}
 
-              {repo.watchers_count > 0 &&
-                repo.watchers_count !== repo.stargazers_count && (
-                  <span
-                    className="flex items-center gap-1"
-                    title={`${repo.watchers_count} watchers`}
-                  >
-                    <Eye className="w-3.5 h-3.5" aria-hidden="true" />
-                    <span>{formatNumber(repo.watchers_count)}</span>
-                  </span>
-                )}
+              {repo.watchers_count > 0 && repo.watchers_count !== repo.stargazers_count && (
+                <span className="flex items-center gap-1" title={`${repo.watchers_count} watchers`}>
+                  <Eye className="w-3.5 h-3.5" aria-hidden="true" />
+                  <span>{formatNumber(repo.watchers_count)}</span>
+                </span>
+              )}
 
               <span
                 className="flex items-center gap-1 ml-auto"
@@ -147,5 +137,5 @@ export function RepositoryCard({ repo, index = 0 }: RepositoryCardProps) {
         </div>
       </CardContent>
     </Card>
-  );
+  )
 }

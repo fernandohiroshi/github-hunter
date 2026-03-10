@@ -1,11 +1,11 @@
-import { useSearchStore } from "@/store/searchStore";
-import { RepositoryListLoading } from "@/components/repository/list/RepositoryListLoading";
-import { RepositoryListError } from "@/components/repository/list/RepositoryListError";
-import { RepositoryListHeader } from "@/components/repository/list/RepositoryListHeader";
-import { RepositoryListEmpty } from "@/components/repository/list/RepositoryListEmpty";
-import { RepositoryListItems } from "@/components/repository/list/RepositoryListItems";
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
+import { useSearchStore } from '@/store/searchStore'
+import { RepositoryListLoading } from '@/components/repository/list/RepositoryListLoading'
+import { RepositoryListError } from '@/components/repository/list/RepositoryListError'
+import { RepositoryListHeader } from '@/components/repository/list/RepositoryListHeader'
+import { RepositoryListEmpty } from '@/components/repository/list/RepositoryListEmpty'
+import { RepositoryListItems } from '@/components/repository/list/RepositoryListItems'
+import { Button } from '@/components/ui/button'
+import { Loader2 } from 'lucide-react'
 
 export function RepositoryList() {
   const {
@@ -18,16 +18,16 @@ export function RepositoryList() {
     sortOption,
     setSortOption,
     getSortedRepositories,
-  } = useSearchStore();
+  } = useSearchStore()
 
-  const sortedRepos = getSortedRepositories();
+  const sortedRepos = getSortedRepositories()
 
   if (isLoadingRepos) {
-    return <RepositoryListLoading />;
+    return <RepositoryListLoading />
   }
 
   if (reposError) {
-    return <RepositoryListError message={reposError} />;
+    return <RepositoryListError message={reposError} />
   }
 
   return (
@@ -49,9 +49,7 @@ export function RepositoryList() {
       {sortedRepos.length > 0 && (
         <div className="mt-6 flex flex-col items-center gap-3">
           {reposLoadMoreError && (
-            <p className="text-sm text-destructive text-center">
-              {reposLoadMoreError}
-            </p>
+            <p className="text-sm text-destructive text-center">{reposLoadMoreError}</p>
           )}
 
           {reposHasMore && (
@@ -65,11 +63,11 @@ export function RepositoryList() {
               {isLoadingMoreRepos && (
                 <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
               )}
-              {isLoadingMoreRepos ? "Carregando..." : "Carregar mais"}
+              {isLoadingMoreRepos ? 'Carregando...' : 'Carregar mais'}
             </Button>
           )}
         </div>
       )}
     </section>
-  );
+  )
 }

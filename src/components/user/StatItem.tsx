@@ -1,7 +1,7 @@
 interface StatItemProps {
-  icon: React.ReactNode;
-  value: string;
-  label: string;
+  icon: React.ReactNode
+  value: string
+  label: string
 }
 
 export function StatItem({ icon, value, label }: StatItemProps) {
@@ -13,5 +13,5 @@ export function StatItem({ icon, value, label }: StatItemProps) {
       <span className="font-bold text-foreground">{value}</span>
       <span className="text-muted-foreground">{label}</span>
     </div>
-  );
+  )
 }

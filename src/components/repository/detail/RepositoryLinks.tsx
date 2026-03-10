@@ -1,9 +1,9 @@
-import { ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import type { GitHubRepository } from "@/types/github";
+import { ExternalLink } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import type { GitHubRepository } from '@/types/github'
 
 interface RepositoryLinksProps {
-  repo: GitHubRepository;
+  repo: GitHubRepository
 }
 
 export function RepositoryLinks({ repo }: RepositoryLinksProps) {
@@ -19,7 +19,7 @@ export function RepositoryLinks({ repo }: RepositoryLinksProps) {
       {repo.homepage && (
         <Button variant="outline" asChild>
           <a
-            href={repo.homepage.startsWith("http") ? repo.homepage : `https://${repo.homepage}`}
+            href={repo.homepage.startsWith('http') ? repo.homepage : `https://${repo.homepage}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -29,5 +29,5 @@ export function RepositoryLinks({ repo }: RepositoryLinksProps) {
         </Button>
       )}
     </div>
-  );
+  )
 }
