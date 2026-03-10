@@ -21,16 +21,13 @@ export function UserCard({ user }: UserCardProps) {
   return (
     <div className="animate-fade-in">
       <div className="flex flex-col sm:flex-row gap-6 items-center md:items-start">
-        {/* Avatar */}
         <UserAvatar avatarUrl={user.avatar_url} login={user.login} initials={initials} />
 
-        {/* Info */}
         <div className="flex-1 min-w-0 text-center sm:text-left">
           <UserHeader name={user.name} login={user.login} />
 
           <UserBio bio={user.bio} />
 
-          {/* Meta */}
           <UserMeta
             company={user.company}
             location={user.location}
@@ -39,7 +36,6 @@ export function UserCard({ user }: UserCardProps) {
             twitterUsername={user.twitter_username}
           />
 
-          {/* Stats */}
           <UserStats
             followers={user.followers}
             following={user.following}
@@ -47,7 +43,6 @@ export function UserCard({ user }: UserCardProps) {
           />
         </div>
 
-        {/* GitHub link */}
         <GitHubProfileButton htmlUrl={user.html_url} />
       </div>
 

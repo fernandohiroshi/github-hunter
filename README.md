@@ -21,7 +21,8 @@ Aplicação web construída com **React + TypeScript** que consome a **[GitHub R
   - Data de atualização (mais recente/mais antiga)
 - **Paginação incremental** na listagem de repositórios
   - Carrega uma primeira página (30 itens)
-  - Botão "Carregar mais" para buscar as próximas páginas
+  - Carregamento automático ao rolar (infinite scroll)
+  - Itens com efeito de fade-in conforme entram na viewport
 - **Página de detalhes** de cada repositório
   - Linguagem principal (com cor por linguagem)
   - Estrelas, forks, watchers, issues

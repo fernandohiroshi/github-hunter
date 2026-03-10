@@ -10,24 +10,21 @@ import { useSearchStore } from '@/store/searchStore'
 
 export function UserPage() {
   const { username } = useParams<{ username: string }>()
-  const { user, isLoadingUser, userError, query, searchUser } = useSearchStore()
+  const { user, isLoadingUser, userError, searchUser } = useSearchStore()
 
   useEffect(() => {
-    if (username && username !== query) {
-      searchUser(username)
-    }
-  }, [username, query, searchUser])
+    if (!username) return
+    searchUser(username)
+  }, [username, searchUser])
 
   return (
     <main className="container mx-auto px-4 max-w-4xl py-8 space-y-8">
-      {/* Inline search bar for re-searching */}
       <div className="animate-fade-in">
         <SearchBar />
       </div>
 
       <Separator />
 
-      {/* User section */}
       <section aria-label="Perfil do usuário">
         {isLoadingUser && <UserCardSkeleton />}
         {!isLoadingUser && userError && (
@@ -40,7 +37,6 @@ export function UserPage() {
         {!isLoadingUser && user && <UserCard user={user} />}
       </section>
 
-      {/* Repos section — only show if user loaded */}
       {(user || !userError) && !isLoadingUser && (
         <>
           <Separator />

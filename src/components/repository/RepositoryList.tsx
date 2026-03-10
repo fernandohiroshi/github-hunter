@@ -1,11 +1,10 @@
+import { useEffect, useRef } from 'react'
 import { useSearchStore } from '@/store/searchStore'
 import { RepositoryListLoading } from '@/components/repository/list/RepositoryListLoading'
 import { RepositoryListError } from '@/components/repository/list/RepositoryListError'
 import { RepositoryListHeader } from '@/components/repository/list/RepositoryListHeader'
 import { RepositoryListEmpty } from '@/components/repository/list/RepositoryListEmpty'
 import { RepositoryListItems } from '@/components/repository/list/RepositoryListItems'
-import { Button } from '@/components/ui/button'
-import { Loader2 } from 'lucide-react'
 
 export function RepositoryList() {
   const {
@@ -20,7 +19,40 @@ export function RepositoryList() {
     getSortedRepositories,
   } = useSearchStore()
 
+  const loadMoreRef = useRef<HTMLDivElement | null>(null)
+  const loadLockRef = useRef(false)
+
   const sortedRepos = getSortedRepositories()
+
+  useEffect(() => {
+    const el = loadMoreRef.current
+    if (!el) return
+    if (!reposHasMore) return
+
+    if (!isLoadingMoreRepos) {
+      loadLockRef.current = false
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0]
+        if (!entry?.isIntersecting) return
+        if (!reposHasMore) return
+        if (isLoadingMoreRepos) return
+        if (loadLockRef.current) return
+        loadLockRef.current = true
+        loadMoreRepos()
+      },
+      {
+        root: null,
+        rootMargin: '240px 0px',
+        threshold: 0,
+      },
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [reposHasMore, isLoadingMoreRepos, loadMoreRepos])
 
   if (isLoadingRepos) {
     return <RepositoryListLoading />
@@ -32,40 +64,31 @@ export function RepositoryList() {
 
   return (
     <section aria-label="Repositórios públicos">
-      {/* Header */}
       <RepositoryListHeader
         total={sortedRepos.length}
         sortOption={sortOption}
         onSortChange={setSortOption}
       />
 
-      {/* Empty state */}
       {sortedRepos.length === 0 && <RepositoryListEmpty />}
 
-      {/* List */}
       {sortedRepos.length > 0 && <RepositoryListItems repos={sortedRepos} />}
 
-      {/* Pagination */}
       {sortedRepos.length > 0 && (
         <div className="mt-6 flex flex-col items-center gap-3">
           {reposLoadMoreError && (
             <p className="text-sm text-destructive text-center">{reposLoadMoreError}</p>
           )}
 
-          {reposHasMore && (
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => loadMoreRepos()}
-              disabled={isLoadingMoreRepos}
-              aria-label="Carregar mais repositórios"
-            >
-              {isLoadingMoreRepos && (
-                <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
-              )}
-              {isLoadingMoreRepos ? 'Carregando...' : 'Carregar mais'}
-            </Button>
-          )}
+          <div className="w-full" aria-hidden="true">
+            <div ref={loadMoreRef} className="h-px w-full" />
+          </div>
+
+          <div className="h-6 flex items-center justify-center">
+            {reposHasMore && isLoadingMoreRepos && (
+              <p className="text-xs text-muted-foreground">Carregando...</p>
+            )}
+          </div>
         </div>
       )}
     </section>

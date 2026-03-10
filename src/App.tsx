@@ -18,15 +18,16 @@ export default function App() {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
+
         <footer className="border-t border-border py-4 text-center text-xs text-muted-foreground">
-          GitHub Hunter — Dados fornecidos pela{' '}
+          Projeto desenvolvido por{' '}
           <a
-            href="https://docs.github.com/en/rest"
+            href="https://fernandohiroshi.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary/70 hover:text-primary transition-colors"
           >
-            GitHub REST API
+            Fernando Hiroshi
           </a>
         </footer>
       </div>
