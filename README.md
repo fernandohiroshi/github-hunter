@@ -11,10 +11,16 @@ Aplicação web construída com **React + TypeScript** que consome a **[GitHub R
 ## ✨ Funcionalidades
 
 - **Busca de usuários** por nome de usuário do GitHub
+- **Histórico de buscas**
+  - Salva os últimos 5 usuários pesquisados no `localStorage`
+  - Permite reexecutar uma busca com 1 clique
 - **Perfil completo**
   - Avatar, nome, bio
   - E-mail, localização, empresa, website e Twitter (quando disponível)
   - Seguidores/seguindo e total de repositórios públicos
+- **Featured Repositories (Home)**
+  - Lista de repositórios populares do ecossistema moderno
+  - Ao clicar, navega para `/user/:username` como um atalho para a busca
 - **Listagem de repositórios** com ordenação por:
   - Estrelas (maior/menor)
   - Nome (A→Z / Z→A)
@@ -29,6 +35,7 @@ Aplicação web construída com **React + TypeScript** que consome a **[GitHub R
   - Licença, branch padrão, datas e tópicos
   - Link direto para o repositório e (quando existir) homepage/demo
 - **Estados de loading, erro e vazio** tratados
+  - Skeleton loading para perfil e lista de repositórios
 - **Responsivo** (mobile-first)
 - **Acessibilidade**
   - `aria-label` em controles relevantes
