@@ -34,14 +34,13 @@ export function RepositoryCard({ repo, index = 0 }: RepositoryCardProps) {
       onKeyDown={handleKeyDown}
       aria-label={`Ver detalhes do repositório ${repo.name}`}
       className={cn(
-        'cursor-pointer card-hover animate-fade-in border-border/60',
+        'cursor-pointer card-hover border-border/60',
         `stagger-${Math.min((index % 5) + 1, 5)}`,
       )}
     >
       <CardContent className="p-4 sm:p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 min-w-0">
-            {/* Name + badges */}
             <div className="flex flex-wrap items-center gap-2 mb-1.5">
               <h3 className="font-bold text-base text-foreground font-mono truncate">
                 {repo.name}
@@ -58,14 +57,12 @@ export function RepositoryCard({ repo, index = 0 }: RepositoryCardProps) {
               )}
             </div>
 
-            {/* Description */}
             {repo.description && (
               <p className="text-sm text-muted-foreground line-clamp-2 mb-3 leading-relaxed">
                 {repo.description}
               </p>
             )}
 
-            {/* Topics */}
             {repo.topics && repo.topics.length > 0 && (
               <div className="flex flex-wrap gap-1.5 mb-3">
                 {repo.topics
@@ -87,7 +84,6 @@ export function RepositoryCard({ repo, index = 0 }: RepositoryCardProps) {
               </div>
             )}
 
-            {/* Stats row */}
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-muted-foreground">
               {repo.language && (
                 <span className="flex items-center gap-1.5">
@@ -129,7 +125,6 @@ export function RepositoryCard({ repo, index = 0 }: RepositoryCardProps) {
             </div>
           </div>
 
-          {/* Arrow indicator */}
           <ArrowRight
             className="w-4 h-4 text-muted-foreground/40 shrink-0 mt-1 group-hover:text-primary transition-colors"
             aria-hidden="true"
