@@ -1,4 +1,4 @@
-# 🔍 GitHub Hunter
+# <img src="./public/favicon.svg" alt="GitHub Hunter" width="20" height="20" /> GitHub Hunter
 
 Aplicação web construída com **React + TypeScript** que consome a **[GitHub REST API](https://docs.github.com/en/rest)** para buscar perfis de usuários e explorar seus repositórios públicos.
 
@@ -56,19 +56,19 @@ A aplicação suporta **dark mode** (padrão) e **light mode** com um botão de 
 
 ## 🛠️ Stack Tecnológica
 
-| Categoria       | Tecnologia                              |
-| --------------- | --------------------------------------- |
-| Framework       | React 18 + TypeScript                   |
-| Build           | Vite 5                                  |
-| Roteamento      | React Router DOM v6                     |
-| Estado global   | Zustand (com `devtools`)                |
-| HTTP            | Axios                                   |
-| UI Components   | shadcn/ui (Radix UI primitives)         |
-| Estilização     | Tailwind CSS v3 + `tailwindcss-animate` |
-| Fontes          | Syne + JetBrains Mono (Google Fonts)    |
-| Ícones          | Lucide React                            |
-| Testes          | Vitest + Testing Library (`jsdom`)      |
-| Package manager | pnpm                                    |
+| Categoria       | Tecnologia                                                                                                              |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Framework       | [React](https://react.dev/) 18 + [TypeScript](https://www.typescriptlang.org/)                                          |
+| Build           | [Vite](https://vitejs.dev/) 5                                                                                           |
+| Roteamento      | [React Router](https://reactrouter.com/en/main) DOM v6                                                                  |
+| Estado global   | [Zustand](https://zustand-demo.pmnd.rs/) (com `devtools`)                                                               |
+| HTTP            | [Axios](https://axios-http.com/)                                                                                        |
+| UI Components   | [shadcn/ui](https://ui.shadcn.com/) (com [Radix UI](https://www.radix-ui.com/))                                         |
+| Estilização     | [Tailwind CSS](https://tailwindcss.com/) v3 + [tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate) |
+| Fontes          | [Syne](https://fonts.google.com/specimen/Syne) + [JetBrains Mono](https://www.jetbrains.com/lp/mono/)                   |
+| Ícones          | [Lucide](https://lucide.dev/) (lucide-react)                                                                            |
+| Testes          | [Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/) (`jsdom`)                               |
+| Package manager | [pnpm](https://pnpm.io/)                                                                                                |
 
 ---
 
@@ -176,8 +176,9 @@ O projeto utiliza **Prettier** para padronizar a formatação do código (escopo
 src/
 ├── components/
 │   ├── home/            # HomeHero, HomeSearchSection, FeaturesGrid, FeatureCard
-│   ├── layout/          # Header, Footer
+│   ├── layout/          # Header
 │   ├── search/          # SearchBar
+│   ├── theme/           # ThemeProvider, ThemeToggleButton
 │   ├── user/            # UserCard e subcomponentes (UserHeader, UserMeta, UserStats, etc.)
 │   ├── repository/      # RepositoryCard, RepositoryList e subpastas
 │   │   ├── detail/      # Seções da página de detalhe do repositório
@@ -192,7 +193,6 @@ src/
 │   └── searchStore.ts   # Zustand store global
 ├── services/
 │   └── github.ts        # Camada de API (Axios)
-├── hooks/               # Custom hooks (extensível)
 ├── types/
 │   └── github.ts        # Interfaces TypeScript
 ├── utils/
@@ -238,28 +238,6 @@ O projeto usa **Vitest** com ambiente **`jsdom`** e `@testing-library/jest-dom`.
   - `pattern` para restringir formato válido
 - Sem armazenamento de tokens/dados sensíveis
 - URLs de blog são normalizadas para `https://` quando necessário
-
----
-
-## ☁️ Deploy (Vercel)
-
-**Demo:** https://githubhunter.vercel.app
-
-O comando de build do projeto é:
-
-```bash
-pnpm build
-```
-
-Se o ambiente de build bloquear scripts de pós-instalação, o projeto já inclui a configuração do pnpm para permitir o build do `esbuild`:
-
-```json
-{
-  "pnpm": {
-    "onlyBuiltDependencies": ["esbuild"]
-  }
-}
-```
 
 ---
 
