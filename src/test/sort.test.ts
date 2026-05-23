@@ -1,3 +1,6 @@
+// Testes no App GitHub Hunter – Resumo
+// sort.test.ts → Garante que os repositórios aparecem na ordem correta (estrelas, nome, data).
+
 import { describe, it, expect } from 'vitest'
 import { sortRepositories } from '@/utils/sort'
 import { mockRepositories } from '@/test/mocks'

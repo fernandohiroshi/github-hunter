@@ -1,3 +1,6 @@
+// Testes no App GitHub Hunter – Resumo
+// RepositoryCard.test.tsx → Verifica se as informações do repositório (nome, descrição, estrelas, linguagem) aparecem.
+
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'

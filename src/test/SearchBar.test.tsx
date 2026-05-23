@@ -1,3 +1,6 @@
+// Testes no App GitHub Hunter – Resumo
+// SearchBar.test.tsx → Testa se a barra de busca funciona e navega para a página do usuário.
+
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'

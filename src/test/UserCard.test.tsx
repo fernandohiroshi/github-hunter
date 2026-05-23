@@ -1,3 +1,6 @@
+// Testes no App GitHub Hunter – Resumo
+// UserCard.test.tsx → Confirma que os dados do usuário (nome, bio, empresa, localização) aparecem corretamente.
+
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'

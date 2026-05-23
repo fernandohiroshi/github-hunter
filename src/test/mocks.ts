@@ -1,3 +1,6 @@
+// Testes no App GitHub Hunter – Resumo
+// mocks.ts → Fornece dados falsos para testes sem precisar chamar a API real.
+
 import type { GitHubUser, GitHubRepository } from '@/types/github'
 
 export const mockUser: GitHubUser = {
