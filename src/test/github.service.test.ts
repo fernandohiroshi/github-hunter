@@ -1,3 +1,6 @@
+// Testes no App GitHub Hunter – Resumo
+// github.service.test.ts → Testa se erros da API são tratados e mostrados com mensagens amigáveis.
+
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import axios, { AxiosError, type AxiosResponse } from 'axios'
 import { fetchUser, fetchUserRepositories } from '@/services/github'

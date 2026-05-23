@@ -1,3 +1,6 @@
+// Testes no App GitHub Hunter – Resumo
+// format.test.ts → Verifica se números e datas são exibidos de forma legível (ex: 1500 → 1.5k).
+
 import { describe, it, expect } from 'vitest'
 import { formatNumber, formatDate, truncate } from '@/utils/format'
 
